@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:citadel/router/app_router.gr.dart';
+import 'package:almanac/router/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_auth_ui/supabase_auth_ui.dart';
 
@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              "Login to citadel",
+              "Login to almanac",
               style: TextStyle(
                 fontWeight: FontWeight.w600,
                 color: Colors.black54,
@@ -29,18 +29,9 @@ class LoginPage extends StatelessWidget {
                 onSignInComplete: (AuthResponse response) {
                   context.router.popAndPush(const HomeRoute());
                 },
-                onSignUpComplete: (AuthResponse response) {},
-              ),
-            ),
-            SizedBox(
-              width: 320,
-              child: SupaSocialsAuth(
-                socialProviders: const [SocialProviders.google],
-                colored: true,
-                onSuccess: (session) {
+                onSignUpComplete: (AuthResponse response) {
                   context.router.popAndPush(const HomeRoute());
                 },
-                socialButtonVariant: SocialButtonVariant.icon,
               ),
             ),
           ],

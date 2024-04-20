@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:citadel/router/auth_guard.dart';
+import 'package:almanac/router/auth_guard.dart';
 
 import "app_router.gr.dart";
 

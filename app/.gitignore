@@ -93,3 +93,4 @@ doc/api/
 
 .idea/
 .vscode/
+*.gr.dart

@@ -9,20 +9,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(
-          Icons.upload_rounded,
-        ),
-      ),
       bottomNavigationBar: CurvedNavigationBar(
         animationCurve: Curves.fastOutSlowIn,
         buttonBackgroundColor: Colors.white,
         backgroundColor: Colors.white,
         height: 12,
-        onTap: (value) {
-
-        },
+        onTap: (value) {},
         items: const [
           Icon(
             Icons.home,

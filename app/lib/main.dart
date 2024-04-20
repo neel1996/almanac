@@ -1,5 +1,5 @@
-import 'package:citadel/router/app_router.dart';
-import 'package:citadel/supabase.dart';
+import 'package:almanac/router/app_router.dart';
+import 'package:almanac/supabase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -7,11 +7,11 @@ Future<void> main() async {
   await dotenv.load(fileName: ".env");
   await initializeSupabase();
 
-  runApp(const CitadelApp());
+  runApp(const AlmanacApp());
 }
 
-class CitadelApp extends StatelessWidget {
-  const CitadelApp({super.key});
+class AlmanacApp extends StatelessWidget {
+  const AlmanacApp({super.key});
 
   @override
   Widget build(BuildContext context) {

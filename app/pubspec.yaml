@@ -1,5 +1,5 @@
-name: citadel
-description: "A new Flutter project."
+name: almanac
+description: "A book search and recommendations app"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -36,12 +36,13 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
   supabase_auth_ui: ^0.3.0
-  supabase_flutter: ^2.0.2
+  supabase_flutter: ^2.5.1
   flutter_dotenv: ^5.1.0
   another_flutter_splash_screen: ^1.2.0
   auto_route: ^7.8.4
   auto_route_generator: ^7.3.2
   curved_navigation_bar: ^1.0.3
+  google_sign_in: ^6.2.1
 
 dev_dependencies:
   flutter_test:

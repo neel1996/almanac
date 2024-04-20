@@ -1,5 +1,5 @@
+import 'package:almanac/router/app_router.gr.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:citadel/router/app_router.gr.dart';
 import 'package:supabase_auth_ui/supabase_auth_ui.dart';
 
 class AuthGuard extends AutoRouteGuard {
