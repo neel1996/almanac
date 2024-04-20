@@ -32,6 +32,9 @@ class LoginPage extends StatelessWidget {
                 onSignUpComplete: (AuthResponse response) {
                   context.router.popAndPush(const HomeRoute());
                 },
+                onError: (error) {
+                  SnackBar(content: Text(error.toString()));
+                },
               ),
             ),
           ],
