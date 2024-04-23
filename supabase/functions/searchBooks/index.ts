@@ -19,10 +19,11 @@ serve(async (req) => {
   );
 
   const { searchQuery } = data;
-  const query_embedding = await session(searchQuery, {
+  const query_embedding = await session.run(searchQuery, {
     mean_pool: true,
     normalize: true,
   });
+  console.log("Query embedding generated");
 
   const promises: Promise<any>[] = [];
   promises.push(
@@ -58,11 +59,20 @@ serve(async (req) => {
     }
     return acc;
   }, []);
+  console.log("Matches found: ", matches);
 
-  return fetchFromOpenLibrary(matches.map((book: any) => book.openlibrary_id));
+  const booksResponse = await fetchFromOpenLibrary(
+    matches.map((book: any) => book.id)
+  );
+  console.log("Books fetched: ", booksResponse);
+
+  return new Response(JSON.stringify({ books: booksResponse }), {
+    headers: { "Content-Type": "application/json" },
+  });
 });
 
 const fetchFromOpenLibrary = async (bookIds: string[]) => {
+  console.log("Fetching book data from Open Library");
   const bookDataPromises = bookIds.map((bookId: string) =>
     fetch(`${BOOKS_API}${bookId}.json`)
   );
@@ -82,10 +92,13 @@ const fetchFromOpenLibrary = async (bookIds: string[]) => {
     bookRatings.map((response) => response.json())
   );
 
+  console.log("Book data fetched from Open Library");
+
   return bookDataJson.map((book: any, index: number) => {
     return {
-      ...book,
-      rating: bookRatingJson[index],
+      id: book.key,
+      description: book.description?.value,
+      rating: bookRatingJson[index]?.average || 0,
     };
   });
 };
